@@ -5,3 +5,6 @@ import { CdkCicdStack } from '../lib/cdk-cicd-stack';
 const app = new cdk.App();
 new CdkCicdStack(app, 'CdkCicdStack', {
 });
+
+// Without this the pipeline won't work
+app.synth();
