@@ -1,0 +1,13 @@
+import {Construct} from "constructs";
+import {Stage, StageProps} from "aws-cdk-lib";
+import {LambdaStack} from "./LambdaStack";
+
+export class PipelineStage extends Stage {
+    constructor(scope: Construct, id: string, props: StageProps) {
+        super(scope, id, props);
+
+        new LambdaStack(this, 'CdkCiCdLambdaStack', {
+            stageName: props.stageName
+        })
+    }
+}
